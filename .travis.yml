@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: c4fQ/oDbRAH/vUSM5F8OMTXO4GcRAvfvA71wyXfn3jywys/fUSWFwl9XZpp+KEqWBQPEE7Egs1b6V20XE6y6Oc6WOb7FDEStGPS9sN7GRG7oQdbnvXZchod+WERhf/InTjOorTmcC6h19B5aLC/mTRrtswanDzmPQ21FQKGay/JynUJZo1AOdnXF0iT/4N+76IxDSAa3o1pgUoU/Kg2RXuzrZYssh3VAor1P44b+8WZL5YF0nTzqK8mpio/lgZcUlzTkKOhga6Qep7HGxp8UJMrJ2tUv3Hey9xmrM/8Rp+lbEamh1s4JTRKQqYkqtgi3MPuwjOV5RO5oQ1anJ99B8u7Vkj5u1ImxHO0m+6VlYJxNDLRB9j+R5hkTFPMgWhB+gQEUDm2Jd3OMcQXoQEXPD3y0NjLKzbfRWHVHz4EGFw+td1b//erYg3Zj4gmqLKVGNs8PrsNo8D49epokcDD2tEN+kf6d/j7YS7T+x0yovq34wDgnjGHynl4NjNZ8Cr8L1qHZgrQgWXiekjL/1062k00UTHGM6eruORqsv0lXvNjMI/LSyXzlQ2GHMZ35mrvZVtPmUuJDYGmBYwIVHjEKUPE9axpt3ZsDOynfmIss45fQna3F2Di0rIhtyardExCN6ZPthgfj1LOG12ADbG3hF+nxVZMVVkRpZUcw5fkGMiE=
+  app: gentle-shore-84833
+  on:
+    repo: c-bert/node-shopping-list-integration-tests
