@@ -183,16 +183,17 @@ describe("Recipes List", function() {
   //  1. make a POST request with data for a new item
   //  2. inspect response object and prove it has right status code and that the returned object has an `id`
   it("should add an item on POST", function() {
-    const newItem = { name: "pineapple upside down cake martinis", checked: false };
+    const newItem = { ingredients: ["pineapple juice"], name: "pineapple upside down cake martinis"};
     return chai
       .request(app)
       .post("/recipes")
       .send(newItem)
       .then(function(res) {
+        //status 201 "created"
         expect(res).to.have.status(201);
         expect(res).to.be.json;
         expect(res.body).to.be.a("object");
-        expect(res.body).to.include.keys("name", "ingredients", "checked");
+        expect(res.body).to.include.keys("name", "ingredients");
         expect(res.body.id).to.not.equal(null);
         // response should be deep equal to `newItem` from above if we assign
         // `id` to it from `res.body.id`
@@ -216,7 +217,7 @@ describe("Recipes List", function() {
     // we can make a second, PUT call to the app.
     const updateRecipesData = {
       name: "hello world",
-      checked: true
+      ingredients: ["ketchup", 'mustard']
     };
 
     return (
@@ -234,11 +235,7 @@ describe("Recipes List", function() {
 
         .then(function(res) {
         // prove that the PUT request has right status code          
-          expect(res).to.have.status(200);
-        // and returns updated item          
-          expect(res).to.be.json;
-          expect(res.body).to.be.a("object");
-          expect(res.body).to.deep.equal(updateRecipesData);
+          expect(res).to.have.status(204);
         })
     );
   });
